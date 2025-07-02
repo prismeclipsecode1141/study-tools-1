@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Study Tools</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+    input, button { padding: 10px; font-size: 16px; width: 300px; }
+  </style>
+</head>
+<body>
+  <h1>Study Tools</h1>
+  <input type="text" id="urlInput" placeholder="Search or enter URL" />
+  <button onclick="go()">Go</button>
+
+  <script>
+    function go() {
+      const input = document.getElementById('urlInput').value;
+      const isURL = input.startsWith('http') || input.includes('.');
+      const target = isURL ? input : `https://www.google.com/search?q=${encodeURIComponent(input)}`;
+      const proxy = 'https://www.croxyproxy.com/';
+      window.location.href = proxy + 'proxy/?url=' + encodeURIComponent(target);
+    }
+  </script>
+</body>
+</html>
